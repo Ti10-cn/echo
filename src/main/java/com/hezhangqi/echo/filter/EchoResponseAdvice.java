@@ -47,7 +47,6 @@ public class EchoResponseAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        System.out.println("我执行了supports");
         return  resultBoolean && !(returnType.getParameterType() == BaseResponse.class);
     }
 

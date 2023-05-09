@@ -26,12 +26,8 @@ public class EchoRequestFilter implements HandlerInterceptor{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         //初始化threadLocal
-        System.out.println("我执行了0");
         Map<String, String> map = new HashMap<>();
-        map.put("requestURI", request.getRequestURI());
         threadLocal.set(map);
-        String put = threadLocal.get().put("requestURI", request.getRequestURI());;
-        System.out.println("请求地址："+put);
         return true;
     }
 
