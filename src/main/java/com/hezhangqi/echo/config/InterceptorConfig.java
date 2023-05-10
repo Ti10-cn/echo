@@ -10,12 +10,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.hezhangqi.echo.filter.EchoRequestFilter;
+import com.hezhangqi.echo.interceptor.EchoRequestInterceptor;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
     @Autowired
-    private EchoRequestFilter echoRequestFilter;
+    private EchoRequestInterceptor echoRequestFilter;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

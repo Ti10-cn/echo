@@ -30,7 +30,6 @@ public enum StatusEnum implements CommEnum {
 
     @JsonCreator
     public static StatusEnum getEnumByValue(String value) {
-        System.out.println("反序列化进来了" + value);
         for (StatusEnum statusEnum : StatusEnum.values()) {
             if (statusEnum.getValue().equals(value)) {
                 return statusEnum;

@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hezhangqi.echo.enums.datatype.StatusEnum;
+import com.hezhangqi.echo.exception.EchoException;
 import com.hezhangqi.echo.interceptor.EchoRequestInterceptor;
 import com.hezhangqi.echo.pojo.vo.BaseResponse;
 
@@ -44,6 +45,11 @@ public class EchoResponseAdvice implements ResponseBodyAdvice<Object> {
         String message = bindingResult.getFieldError().getDefaultMessage();
         resultBoolean = false;
         return BaseResponse.with(StatusEnum.ERROR, message);
+    }
+    @ExceptionHandler(EchoException.class)
+    public BaseResponse<String> exceptionHandler(EchoException e) {
+        resultBoolean = false;
+        return BaseResponse.with(StatusEnum.ERROR, e.getMessage());
     }
 
     @Override

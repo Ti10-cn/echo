@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 import com.hezhangqi.echo.annotation.CallBack;
+import com.hezhangqi.echo.enums.datatype.ErrorEnum;
+import com.hezhangqi.echo.exception.EchoException;
 import com.hezhangqi.echo.pojo.model.Recv001;
 import com.hezhangqi.echo.pojo.vo.BaseResponse;
 import com.hezhangqi.echo.service.CallBactTestService;
@@ -42,7 +44,7 @@ public class CallBackTestController {
 
     @PostMapping("/echo/test03")
     public String test03(@RequestBody @Validated Recv001 recv001 ){
-        return recv001.getStatusEnum().getValue();
+        throw new EchoException(ErrorEnum.ERROR_0001);
     }
     
 }

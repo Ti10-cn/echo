@@ -14,9 +14,9 @@ import cn.hutool.core.util.EnumUtil;
 
 public enum ErrorEnum implements CommEnum {
 
-    APP_ERROR("app_error", "9997", "应用异常"),
-    CODE_ERROR("code_error", "9995", "代码异常"),
-    API_ERROR("api_error", "9996", "接口异常");
+    ERROR_0001("error_0001", "0001", "应用异常"),
+    ERROR_0002("error_0002", "0002", "代码异常"),
+    ERROR_0003("error_0003", "0003", "接口异常");
 
     private String id;
     private String value;
