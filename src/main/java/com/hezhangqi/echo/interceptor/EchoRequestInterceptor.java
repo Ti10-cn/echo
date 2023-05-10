@@ -1,4 +1,4 @@
-package com.hezhangqi.echo.filter;
+package com.hezhangqi.echo.interceptor;
 /*
  * @Author: ti_cn ti_cn@icloud.com
  * @Date: 2023-05-08 16:00:14
@@ -16,10 +16,10 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 @Component
-public class EchoRequestFilter implements HandlerInterceptor{
+public class EchoRequestInterceptor implements HandlerInterceptor{
 
     //使用ThreadLocal处理全局参数
-    static final ThreadLocal<Map<String,String>> threadLocal = new ThreadLocal<>();
+    public static final ThreadLocal<Map<String,String>> threadLocal = new ThreadLocal<>();
 
     //前置拦截器
     //统一处理请求数据

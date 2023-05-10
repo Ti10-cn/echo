@@ -1,4 +1,4 @@
-package com.hezhangqi.echo.filter;
+package com.hezhangqi.echo.advice;
 /*
  * @Author: ti_cn ti_cn@icloud.com
  * @Date: 2023-05-08 17:42:00
@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hezhangqi.echo.enums.datatype.StatusEnum;
+import com.hezhangqi.echo.interceptor.EchoRequestInterceptor;
 import com.hezhangqi.echo.pojo.vo.BaseResponse;
 
 @RestControllerAdvice
@@ -63,10 +64,10 @@ public class EchoResponseAdvice implements ResponseBodyAdvice<Object> {
                 // throw new RuntimeException("无法转发json格式", e);
                 return BaseResponse.with(StatusEnum.ERROR, "无法转发json格式");
             } finally {
-                EchoRequestFilter.threadLocal.remove();
+                EchoRequestInterceptor.threadLocal.remove();
             }
         }
-        EchoRequestFilter.threadLocal.remove();
+        EchoRequestInterceptor.threadLocal.remove();
         // 封装后的数据返回
         return baseResponse;
 
