@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
-import com.hezhangqi.echo.annotation.CallBack;
+import com.hezhangqi.echo.annotation.TransCallBack;
 import com.hezhangqi.echo.enums.datatype.ErrorEnum;
 import com.hezhangqi.echo.exception.EchoException;
 import com.hezhangqi.echo.pojo.model.Recv001;
@@ -30,7 +30,7 @@ public class CallBackTestController {
     @Autowired
     private CallBactTestService callBactTestService;
     
-    @CallBack("test01")
+    @TransCallBack("test01")
     @PostMapping("/test01")
     public BaseResponse<String> test01(@RequestBody Recv001 recv001){
         int findAll = callBactTestService.findAll();
