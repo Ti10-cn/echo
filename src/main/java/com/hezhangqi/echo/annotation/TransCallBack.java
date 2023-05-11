@@ -14,6 +14,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD) //注解可以写在方法上
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface CallBack {
+public @interface TransCallBack {
     String value() default "";
 }
