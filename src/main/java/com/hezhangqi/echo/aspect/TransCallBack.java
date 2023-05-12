@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class TransCallBack {
-    @Pointcut("@annotation(com.hezhangqi.echo.annotation.CallBack)")
+    @Pointcut("@annotation(com.hezhangqi.echo.annotation.TransCallBack)")
     public void pointCut() {
     }
 
