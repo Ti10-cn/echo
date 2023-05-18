@@ -5,12 +5,14 @@ package com.hezhangqi.echo.pojo.vo;
  * @Description: 
  */
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.hezhangqi.echo.enums.datatype.StatusEnum;
 
 public final class BaseResponse<T> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 3886133510113334083L;
 
     private StatusEnum code;

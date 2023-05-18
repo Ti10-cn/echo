@@ -5,13 +5,16 @@ package com.hezhangqi.echo.pojo.entity;
  * @Description: 
  */
 
+import java.io.Serial;
+
 /**
  * @Author: Ti-cn
  * @Date: 2022/8/10 23:22
  */
 
 public class Echo001 implements java.io.Serializable{
-    private static final long serialVersionUID = 1L;
+    @Serial
+    private static final long serialVersionUID = 7682101152060403890L;
 
     private String column_01;
 

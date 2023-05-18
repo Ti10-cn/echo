@@ -12,9 +12,12 @@ import javax.validation.constraints.NotNull;
 
 import com.hezhangqi.echo.enums.datatype.StatusEnum;
 
+import java.io.Serial;
+
 public class Recv001 implements java.io.Serializable{
 
-    private static final long serialVersionUID = 1L;
+    @Serial
+    private static final long serialVersionUID = 7682101152060403890L;
     @NotNull
     private String id;
     @NotNull

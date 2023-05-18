@@ -7,6 +7,7 @@ package com.hezhangqi.echo.advice;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -29,7 +30,7 @@ import com.hezhangqi.echo.pojo.vo.BaseResponse;
 
 @RestControllerAdvice
 public class EchoResponseAdvice implements ResponseBodyAdvice<Object> {
-    
+
     private Boolean resultBoolean = true;
     // ModelAttribute注解的方法会在每个controller方法执行前执行，处理model数据
     @ModelAttribute(name = "globalData")
@@ -42,7 +43,7 @@ public class EchoResponseAdvice implements ResponseBodyAdvice<Object> {
     @ExceptionHandler(BindException.class)
     public BaseResponse<String> exceptionHandler(BindException e) {
         BindingResult bindingResult = e.getBindingResult();
-        String message = bindingResult.getFieldError().getDefaultMessage();
+        String message = Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage();
         resultBoolean = false;
         return BaseResponse.with(StatusEnum.ERROR, message);
     }
