@@ -17,6 +17,7 @@ public final class BaseResponse<T> implements Serializable {
 
     private StatusEnum code;
     private String message;
+
     private T data;
 
     //无参构造方法中将响应码置为DefaultStatus中的SUCCESS
