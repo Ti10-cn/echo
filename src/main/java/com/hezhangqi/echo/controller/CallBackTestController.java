@@ -6,7 +6,7 @@ package com.hezhangqi.echo.controller;
  */
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.hezhangqi.echo.service.CallBackTestService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +18,6 @@ import com.hezhangqi.echo.enums.datatype.ErrorEnum;
 import com.hezhangqi.echo.exception.EchoException;
 import com.hezhangqi.echo.pojo.model.Recv001;
 import com.hezhangqi.echo.pojo.vo.BaseResponse;
-import com.hezhangqi.echo.service.CallBactTestService;
 
 /*
  * @Author: ti_cn ti_cn@icloud.com
@@ -27,13 +26,16 @@ import com.hezhangqi.echo.service.CallBactTestService;
  */
 @RestController
 public class CallBackTestController {
-    @Autowired
-    private CallBactTestService callBactTestService;
-    
+    private final CallBackTestService callBackTestService;
+
+    public CallBackTestController(CallBackTestService callBackTestService) {
+        this.callBackTestService = callBackTestService;
+    }
+
     @TransCallBack("test01")
     @PostMapping("/test01")
     public BaseResponse<String> test01(@RequestBody Recv001 recv001){
-        int findAll = callBactTestService.findAll();
+        int findAll = callBackTestService.findAll();
         return new BaseResponse<String>(recv001.getStatusEnum().getValue());
     }
 
