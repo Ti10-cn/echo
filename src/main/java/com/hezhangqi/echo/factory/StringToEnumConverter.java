@@ -17,7 +17,7 @@ public class StringToEnumConverter<T extends CommEnum> implements Converter<Stri
     public StringToEnumConverter(Class<T> enumType) {
         T[] enums = enumType.getEnumConstants();
         for (T e : enums) {
-            enumMap.put(e.getValue().toString(), e);
+            enumMap.put(e.getValue(), e);
         }
     }
 

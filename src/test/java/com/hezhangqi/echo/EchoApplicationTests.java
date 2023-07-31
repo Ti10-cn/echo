@@ -5,12 +5,16 @@ package com.hezhangqi.echo;
  * @Description: 
  */
 
+import cn.hutool.system.SystemUtil;
 import com.hezhangqi.echo.pojo.dto.Redhat002;
 import com.hezhangqi.echo.pojo.entity.Echo001;
 import com.hezhangqi.echo.pojo.entity.Echo002;
+import com.hezhangqi.echo.pojo.entity.Echo01;
 import com.hezhangqi.echo.service.CallBackTestService;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.hezhangqi.echo.controller.CallBackTestController;
@@ -23,6 +27,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import static com.hezhangqi.echo.pojo.entity.Echo01.*;
 
 @SpringBootTest
 class EchoApplicationTests {
@@ -105,26 +110,8 @@ class EchoApplicationTests {
 
     @Test
     void test3() {
-//        for (int i = 0; i < 5; i++) {
-//            final Echo001 echo001 = new Echo001("1","1");
-//            final int num;
-//            num = i;
-//            echo001.setColumn_01(String.valueOf(i));
-//            System.out.println(num);
-//            System.out.println(echo001);
-//        }
-        //打印一个字符串由251个1组成
-//        String s = StringUtils.repeat("1", 251);
-//        //取这个字符串的第2位
-//
-//
-//        System.out.println(s);
-        System.out.println(BigDecimal.ZERO);
-        //构造一个 Echo002
-        Echo002 echo002 = new Echo002();
-        //将echo002的每个字段值拼接成一个字符串
-
-
+        String s = "转入";
+        System.out.println(s.length());
     }
 
 }
