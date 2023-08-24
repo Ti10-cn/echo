@@ -18,9 +18,9 @@ public enum StatusEnum implements CommEnum {
     FAIL("fail", "9999", "交易失败"),
     ERROR("error", "9998", "交易异常");
 
-    private String id;
-    private String value;
-    private String longName;
+    private final String id;
+    private final String value;
+    private final String longName;
 
     StatusEnum(String id, String value, String longName) {
         this.id = id;
@@ -68,7 +68,7 @@ public enum StatusEnum implements CommEnum {
     }
 
     // 将枚举的value作为参数传入转换为枚举类型
-    public static StatusEnum get(String value) {
+    public  StatusEnum get(String value) {
         for (StatusEnum statusEnum : StatusEnum.values()) {
             if (statusEnum.getValue().equals(value)) {
                 return statusEnum;

@@ -18,9 +18,9 @@ public enum ErrorEnum implements CommEnum {
     ERROR_0002("error_0002", "0002", "代码异常"),
     ERROR_0003("error_0003", "0003", "接口异常");
 
-    private String id;
-    private String value;
-    private String longName;
+    private final String id;
+    private final String value;
+    private final String longName;
 
     ErrorEnum (String id, String value, String longName) {
         this.id = id;
@@ -69,10 +69,10 @@ public enum ErrorEnum implements CommEnum {
     }
 
     // 将枚举的value作为参数传入转换为枚举类型
-    public static StatusEnum get(String value) {
-        for (StatusEnum statusEnum : StatusEnum.values()) {
-            if (statusEnum.getValue().equals(value)) {
-                return statusEnum;
+    public ErrorEnum get(String value) {
+        for (ErrorEnum errorEnum : ErrorEnum.values()) {
+            if (errorEnum.getValue().equals(value)) {
+                return errorEnum;
             }
         }
         return null;

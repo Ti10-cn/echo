@@ -12,9 +12,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.hezhangqi.echo.interceptor.EchoRequestInterceptor;
 
+import javax.annotation.Resource;
+
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
-    @Autowired
+    @Resource
     private EchoRequestInterceptor echoRequestFilter;
 
     @Override
