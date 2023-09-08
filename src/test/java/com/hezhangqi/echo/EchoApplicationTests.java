@@ -5,29 +5,18 @@ package com.hezhangqi.echo;
  * @Description: 
  */
 
-import cn.hutool.system.SystemUtil;
-import com.hezhangqi.echo.pojo.dto.Redhat002;
-import com.hezhangqi.echo.pojo.entity.Echo001;
-import com.hezhangqi.echo.pojo.entity.Echo002;
-import com.hezhangqi.echo.pojo.entity.Echo01;
-import com.hezhangqi.echo.service.CallBackTestService;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import com.hezhangqi.echo.controller.CallBackTestController;
 import com.hezhangqi.echo.enums.datatype.StatusEnum;
+import com.hezhangqi.echo.pojo.dto.Redhat002;
 import com.hezhangqi.echo.pojo.model.Recv001;
+import com.hezhangqi.echo.service.CallBackTestService;
+import org.apache.commons.lang3.StringUtils;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Field;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import static com.hezhangqi.echo.pojo.entity.Echo01.*;
+import java.nio.charset.StandardCharsets;
 
 @SpringBootTest
 class EchoApplicationTests {
@@ -110,8 +99,12 @@ class EchoApplicationTests {
 
     @Test
     void test3() {
-        String s = "转入";
-        System.out.println(s.length());
-    }
+        String s = "转入123";
 
+        byte[] sBytes = s.getBytes(StandardCharsets.UTF_8);
+        for (byte sByte : sBytes) {
+            System.out.println(sByte);
+        }
+
+    }
 }
