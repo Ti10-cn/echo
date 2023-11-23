@@ -16,7 +16,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.lang.reflect.Field;
-import java.nio.charset.StandardCharsets;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetEncoder;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 @SpringBootTest
 class EchoApplicationTests {
@@ -26,7 +33,7 @@ class EchoApplicationTests {
     @Autowired
     private CallBackTestService callBackTestService;
 
-    
+    private Map<String,Object> cache = new HashMap<>();
     @Test
     void contextLoads() {
         // int i = 1;
@@ -69,16 +76,7 @@ class EchoApplicationTests {
 
     @Test
     void test2() {
-//        Redhat002 redhat002 = new Redhat002();
-//        System.out.println(redhat002.getId());
-//        long l =  redhat002.getId() + 1;
-//        System.out.println(l);
-//
-//        //新建一个数组array,有118个元素
-//        String[] sMingxi = new String[118];
-//        //循环遍历数组array,给每个元素赋值
-//        Arrays.fill(sMingxi, "0");
-//        String[] sMingxi1 = new String[30];
+
 
         Redhat002  redhat002 = new Redhat002();
         Class<?> clazz = redhat002.getClass();
@@ -98,13 +96,27 @@ class EchoApplicationTests {
     }
 
     @Test
-    void test3() {
-        String s = "转入123";
+    void test3() throws CharacterCodingException {
+        String s = "默认值";
+        Charset charset = Charset.forName("UTF-8");
+        CharsetEncoder encoder = charset.newEncoder();
+        ByteBuffer buffer = encoder.encode(CharBuffer.wrap(new char[] {'默'}));
+        String encoding = Arrays.toString(buffer.array());
+        System.out.println(encoding);
+    }
 
-        byte[] sBytes = s.getBytes(StandardCharsets.UTF_8);
-        for (byte sByte : sBytes) {
-            System.out.println(sByte);
-        }
+    @Test
+    void test4() {
+        Map<String, String> map2 = test5(cache);
+        map2.put("123","456");
+        System.out.println(map2);
+        System.out.println(cache);
+    }
+
+    private Map<String,String> test5(Map cache) {
+        Map<String,String> map1 = new HashMap<>();
+        cache.put("map",map1);
+        return map1;
 
     }
 }
