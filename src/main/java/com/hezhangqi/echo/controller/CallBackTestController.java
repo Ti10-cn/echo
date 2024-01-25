@@ -6,18 +6,13 @@ package com.hezhangqi.echo.controller;
  */
 
 
-import com.hezhangqi.echo.service.CallBackTestService;
-import org.springframework.http.HttpHeaders;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
 import com.hezhangqi.echo.annotation.TransCallBack;
-import com.hezhangqi.echo.enums.datatype.ErrorEnum;
-import com.hezhangqi.echo.exception.EchoException;
 import com.hezhangqi.echo.pojo.model.Recv001;
 import com.hezhangqi.echo.pojo.vo.BaseResponse;
+import com.hezhangqi.echo.service.CallBackTestService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /*
  * @Author: ti_cn ti_cn@icloud.com
@@ -40,13 +35,19 @@ public class CallBackTestController {
     }
 
     @PostMapping("/test02")
-    public BaseResponse<String> test02(@RequestHeader HttpHeaders headers){
-        return new BaseResponse<String>(headers.getHost().toString());
+    public String test02(Recv001 recv001){
+        System.out.println("controller");
+        return recv001.getStatusEnum().toString();
     }
 
-    @PostMapping("/echo/test03")
-    public String test03(@RequestBody @Validated Recv001 recv001 ){
-        throw new EchoException(ErrorEnum.ERROR_0001);
-    }
+//    @PostMapping("/test02")
+//    public BaseResponse<String> test02(@RequestHeader HttpHeaders headers){
+//        return new BaseResponse<String>(headers.getHost().toString());
+//    }
+//
+//    @PostMapping("/echo/test03")
+//    public String test03(@RequestBody @Validated Recv001 recv001 ){
+//        throw new EchoException(ErrorEnum.ERROR_0001);
+//    }
     
 }

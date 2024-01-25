@@ -6,12 +6,9 @@ package com.hezhangqi.echo.pojo.model;
  */
 
 
-
-
-import javax.validation.constraints.NotNull;
-
 import com.hezhangqi.echo.enums.datatype.StatusEnum;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serial;
 
 public class Recv001 implements java.io.Serializable{
@@ -19,19 +16,11 @@ public class Recv001 implements java.io.Serializable{
     @Serial
     private static final long serialVersionUID = 7682101152060403890L;
     @NotNull
-    private String id;
-    @NotNull
     private StatusEnum statusEnum;
     
     public Recv001(String id, StatusEnum statusEnum) {
-        this.id = id;
+        System.out.println("我被调用了");
         this.statusEnum = statusEnum;
-    }
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
     }
     public StatusEnum getStatusEnum() {
         return statusEnum;

@@ -1,34 +1,30 @@
-package com.hezhangqi.echo.factory;
-/*
- * @Author: ti_cn ti_cn@icloud.com
- * @Date: 2023-05-06 16:13:43
- * @Description: 
- */
-
-import java.util.Map;
-
-import org.springframework.core.convert.converter.Converter;
-import org.springframework.core.convert.converter.ConverterFactory;
-
-import com.google.common.collect.Maps;
-import com.hezhangqi.echo.enums.CommEnum;
-public class StringToEnumConverterFactory implements ConverterFactory<String, CommEnum> {
-
-    @Override
-    public <T extends CommEnum> Converter<String, T> getConverter(Class<T> targetType) {
-        return new StringToEnumConverter<>(targetType);
-    }
-
-    private record StringToEnumConverter<T extends CommEnum>(Class<T> enumType) implements Converter<String, T> {
-
-        @Override
-            public T convert(String source) {
-                for (T enumValue : enumType.getEnumConstants()) {
-                    if (enumValue.getValue().equals(source)) {
-                        return enumValue;
-                    }
-                }
-                throw new IllegalArgumentException("Invalid code for " + enumType.getSimpleName() + ": " + source);
-            }
-        }
-}
+//package com.hezhangqi.echo.factory;
+///*
+// * @Author: ti_cn ti_cn@icloud.com
+// * @Date: 2023-05-06 16:13:43
+// * @Description:
+// */
+//
+//import com.hezhangqi.echo.enums.CommEnum;
+//import org.springframework.core.convert.converter.Converter;
+//import org.springframework.core.convert.converter.ConverterFactory;
+//import org.springframework.stereotype.Component;
+//
+//@Component
+//public class StringToEnumConverterFactory implements ConverterFactory<String, CommEnum> {
+//
+//    @Override
+//    public <T extends CommEnum> Converter<String, T> getConverter(Class<T> targetType) {
+////        System.out.println("转换器进来了");
+////        System.out.println(targetType.toString());
+////        return source ->  {
+////            for (T t : targetType.getEnumConstants()) {
+////                if (t.getValue().equals(source)) {
+////                    System.out.println("abc");
+////                    return t;
+////                }
+////            }
+////            return null;
+////        };
+//    }
+//}

@@ -5,11 +5,9 @@ package com.hezhangqi.echo.service;
  * @Description: 
  */
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.hezhangqi.echo.dao.Redhat001;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.hezhangqi.echo.dao.Redhat001;
 @Service
 public class CallBackTestService {
     private final Redhat001 redhat001;
@@ -21,6 +19,7 @@ public class CallBackTestService {
     @Transactional(rollbackFor = Exception.class)
     public int findAll(){
         // throw new RuntimeException("测试异常");
-        return redhat001.findByName();
+//        return redhat001.findByName();
+        return 603;
     }
 }

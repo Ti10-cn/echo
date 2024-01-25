@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @SpringBootApplication
 @ServletComponentScan
+
 public class EchoApplication {
 
     public static void main(String[] args) {

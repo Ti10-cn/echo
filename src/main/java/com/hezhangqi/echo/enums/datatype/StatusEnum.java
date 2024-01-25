@@ -5,12 +5,9 @@ package com.hezhangqi.echo.enums.datatype;
  * @Description: 
  */
 
-import org.apache.commons.lang3.EnumUtils;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.hezhangqi.echo.enums.CommEnum;
-
 import cn.hutool.core.util.EnumUtil;
+import com.hezhangqi.echo.enums.CommEnum;
+import org.apache.commons.lang3.EnumUtils;
 
 public enum StatusEnum implements CommEnum {
 
@@ -28,7 +25,7 @@ public enum StatusEnum implements CommEnum {
         this.longName = longName;
     }
 
-    @JsonCreator
+//    @JsonCreator
     public static StatusEnum getEnumByValue(String value) {
         for (StatusEnum statusEnum : StatusEnum.values()) {
             if (statusEnum.getValue().equals(value)) {
@@ -44,7 +41,7 @@ public enum StatusEnum implements CommEnum {
     }
 
     @Override
-    @JsonValue
+//    @JsonValue
     public String getValue() {
         return value;
     }
