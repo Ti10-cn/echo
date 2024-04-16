@@ -210,6 +210,28 @@ class EchoApplicationTests {
     //获取本机的mac地址
     @Test
     void test9() {
+        // 创建一个数组来存储两个线程中的字符串
+        final String s = "234";
+
+        // 创建两个线程
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // 在线程1中访问字符串常量池
+
+                System.out.println(s == "234");
+            }
+        }).start();
+
+//        Thread thread2 = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                // 在线程2中访问字符串常量池
+//                strings[1] = "Hello";
+//                System.out.println("Thread2: " + strings[1]);
+//            }
+//        });
+
 
 
     }
