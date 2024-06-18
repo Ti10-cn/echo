@@ -236,5 +236,13 @@ class EchoApplicationTests {
 
     }
 
+    @Test
+    void test10() {
+        Redhat002  redhat002 = new Redhat002();
+        System.out.println(redhat002.getName());
+        boolean b = redhat002.getName().startsWith("1");
+        System.out.println(b);
+    }
+
     
 }

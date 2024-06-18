@@ -1,8 +1,11 @@
 package com.hezhangqi.echo.pojo.dto;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.bind.DefaultValue;
+
 public class Redhat002 {
     private long id;
-    private String name;
+    private String name = "";
     private String age;
 
     public Redhat002(long id, String name, String age) {
