@@ -20,8 +20,8 @@ public class GamePanel extends JPanel implements ActionListener {
     static final int UNIT_SIZE = 25;
     static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT) / UNIT_SIZE;
     static final int DELAY = 75;
-    final int x[] = new int[GAME_UNITS];
-    final int y[] = new int[GAME_UNITS];
+    final int[] x = new int[GAME_UNITS];
+    final int[] y = new int[GAME_UNITS];
     int bodyParts = 6;
     int applesEaten;
     int appleX;
@@ -152,6 +152,24 @@ public class GamePanel extends JPanel implements ActionListener {
         g.setFont(new Font("Ink Free", Font.BOLD, 40));
         FontMetrics metrics2 = getFontMetrics(g.getFont());
         g.drawString("Score: " + applesEaten, (SCREEN_WIDTH - metrics2.stringWidth("Score: " + applesEaten)) / 2, g.getFont().getSize());
+        int result = JOptionPane.showConfirmDialog(this, "Game Over. Score: " + applesEaten + ". Restart?", "Game Over", JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+            resetGame();
+        } else {
+            System.exit(0);
+        }
+    }
+
+    public void resetGame() {
+        bodyParts = 6;
+        applesEaten = 0;
+        direction = 'R';
+        running = false;
+        for (int i = 0; i < GAME_UNITS; i++) {
+            x[i] = 0;
+            y[i] = 0;
+        }
+        startGame();
     }
 
     @Override
