@@ -42,7 +42,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class EchoApplicationTests {
 
-
   private final Map<String, Object> cache = new HashMap<>();
 
   @Test
@@ -407,7 +406,8 @@ class EchoApplicationTests {
   void test18() {
     String s = "cs4_v7core_kdpb_dqdqzc.sql";
     // 去掉文件名后缀
-    String substring = s.substring(0, s.length() - 4);
+    String substring = s.substring(4);
+    System.out.println(substring);
   }
 
   @Test
@@ -468,5 +468,11 @@ class EchoApplicationTests {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  @Test
+  void test21() {
+    // 读取本地目录的一个excel文件，再读取一个.sql文件，如果excel列名“表英文名”的那一列的值在.sql文件中，则在列名为“目标系统”列的值后面加上“,AWP”;
+
   }
 }

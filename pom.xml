@@ -151,11 +151,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>cn.sunline.aps.maven</groupId>
-                <artifactId>aps-maven-plugin</artifactId>
-                <version>6.5.12-RELEASE</version>
-            </plugin>
         </plugins>
     </build>
 

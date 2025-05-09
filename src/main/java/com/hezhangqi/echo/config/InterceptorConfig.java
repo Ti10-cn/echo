@@ -5,14 +5,11 @@ package com.hezhangqi.echo.config;
  * @Description: 
  */
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.hezhangqi.echo.interceptor.EchoRequestInterceptor;
+import javax.annotation.Resource;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import com.hezhangqi.echo.interceptor.EchoRequestInterceptor;
-
-import javax.annotation.Resource;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
@@ -20,6 +17,13 @@ public class InterceptorConfig implements WebMvcConfigurer {
     private EchoRequestInterceptor echoRequestFilter;
 
     @Override
+    /** 
+     * @Description: 
+     * @Param: [registry]
+     * @return: void
+     * @Author: Echo.qi
+     * @Date: 2025/4/28
+    */
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(echoRequestFilter).addPathPatterns("/**");
     }
